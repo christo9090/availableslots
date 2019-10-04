@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<div class="availableSlotsForm">
-  <div class="availableSlotsText">
-    <h2>Quickly Find Available Inspection Times</h2>
-    <p>Enter the zip code of the property below to find the first available inspection slots in the next 7 days.</p>
-  </div>
-  <div class="availableSlotsInput">
-    <form class="as-mainform" action="index.html" method="get">
-      <input type="text" name="zip" value="">
-      <input type="submit" name="submit" value="Get Available Slots">
-    </form>
+<head>
 
+</head>
+<body>
+
+  <div class="availableSlotsForm">
+    <div class="availableSlotsText">
+      <h2>Quickly Find Available Inspection Times</h2>
+      <p>Enter the zip code of the property below to find the first available inspection slots in the next 7 days.</p>
+    </div>
+    <div class="availableSlotsInput">
+      <form class="as-mainform" autocomplete="off" onsubmit="return false">
+        <input id="zipCodeOfInsp" type="text" name="zip" value="">
+        <!-- <input type="submit" name="submit" value="Get Available Slots"> -->
+        <button id="submitbutton" name="submitbutton" type="submit">Get Available Slots</button>
+      </form>
+      <br>
+
+    </div>
+    <div id="availableSlotsReturn">
+    </div>
   </div>
-  <div id="availableSlotsReturn">
-  </div>
-</div>
+  <script src="./avail-script.js"></script>
+
+</body>
