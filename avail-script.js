@@ -1,6 +1,4 @@
-
-//data
-
+//global variables
 const inspectors = [
   'dbbba336-22b9-5ff7-8b2c-e14d2b28605b',
   '6b986fad-17d7-5139-b364-5693c2f4e775',
@@ -15,20 +13,18 @@ const inspectors = [
 const serviceType = '61ba9388-c53d-11e1-bfb4-b15dbfa5fbfd';
 const daysAhead = 5;
 
-
+//ISN auth
 const isnUsername = 'Christo90'
 const isnPassword = 'tiger123'
-let slots = []
-//call function
 
+let slots = []
+
+//call function
 const getAvailableSlots = async () => {
   let zipCodeOfInsp = document.getElementById('zipCodeOfInsp').value;
-  // let zipCodeOfInsp = document.forms[0].id;
   console.log(zipCodeOfInsp)
   const urlToFetch = `https://inspectionsupport.com/scotthomeinspection/rest/availableslots?username=${isnUsername}&password=${isnPassword}&daysahead=${daysAhead}&zip=${zipCodeOfInsp}&services=${serviceType}`;
-
-
-
+  //calling ISN
   try {
     const response = await fetch(urlToFetch);
     if (response.ok) {
@@ -52,8 +48,7 @@ const getAvailableSlots = async () => {
       } else {
         document.getElementById('availableSlotsReturn').innerHTML = '<p>Sorry, there are no inspection slots available in the next 5 days for a pre-purchase home inspection in that zip code.</p><p>Give us a call for more options.';
       };
-
-
+// error sections
     } else {
   throw new Error('Request Failed!')}
   } catch (e) {
@@ -74,5 +69,3 @@ const returnTimes = () => {
 };
 
 document.getElementById("submitbutton").onclick = function() {getAvailableSlots()};
-
-// getAvailableSlots();
