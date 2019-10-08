@@ -31,7 +31,7 @@ const getAvailableSlots = async () => {
       const jsonResponse = await response.json();
       console.log(jsonResponse);
       let slots2 = jsonResponse.slots
-      //loop through inspectors
+      //loop through inspectors to see if they go pre-purchase.
       for (i = 0; i < slots2.length; i++) {
         if (inspectors.indexOf(slots2[i].userid) !== -1) {
           slots.push(slots2[i]);
@@ -62,7 +62,7 @@ const returnTimes = () => {
   for (i = 0; i < slots.length; i++) {
     finalReturn.push(slots[i].start + " with " + slots[i].userdisplay + "<br>")
   };
-  document.getElementById('availableSlotsReturn').innerHTML = `<p><strong>Available Slots in the next 5 days:</strong><br> ${finalReturn.join('')}</p>`;
+  document.getElementById('availableSlotsReturn').innerHTML = `<p><strong>Available Slots in the next 5 days:</strong><br>${finalReturn.join('')}</p>`;
   slots = [];
   finalReturn = [];
   newFinalReturn = [];
